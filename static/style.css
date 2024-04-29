@@ -1,0 +1,415 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:wght@300;400;500;600;700&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+*,
+*:after,
+*:before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:active,
+:hover,
+:focus {
+    outline: 0 !important;
+    outline-offset: 0;
+}
+
+a,
+a:hover {
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--primary-color) !important  ;
+}
+
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+
+/* =====Variable Define===== */
+:root {
+    --primary-color: #a82c48;
+    --secondry-color: #43121d;
+    --third-color: #f98169;
+    --white-color: #fff;
+    --text-color: #555;
+    --text-gray: #999;
+    --black-color: #000;
+    --primary-font: 'Roboto', sans-serif;
+    --secondry-font: 'Quicksand', sans-serif;
+    ;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--primary-font);
+    font-size: 100%;
+    font-weight: 400;
+
+}
+
+/* Custom Scrollbar */
+
+::-webkit-scrollbar {
+    width: 0.625rem;
+}
+::-webkit-scrollbar-track {
+    background: var(--white-color);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+}
+
+/* Main CSS */
+h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 3rem;
+    color: var(--secondry-color);
+}
+h2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    text-transform: capitalize;
+    font-family: var(--secondry-font);
+    color: var(--secondry-color);
+    line-height: 3rem;
+}
+h4 {
+    color: var(--secondry-color);
+    font-family: var(--secondry-font);
+    text-transform: capitalize;
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+h5 {
+    color: var(--Primary-color);
+    font-family: var(--secondry-font);
+    text-transform: capitalize;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+p {
+    font-size: 1rem;
+    color: var(--text-color);
+    font-weight: 400;
+    line-height: 1.75rem;
+    letter-spacing: 1px;
+}
+
+
+.main-btn {
+    display: inline-block;
+    padding: 0.625rem 1.875rem;
+    line-height: 1.5625rem;
+    background-color: var(--primary-color);
+    border: 0.1875rem solid var(--primary-color);
+    color: var(--white-color);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    box-shadow: 0px 2px 10px -1px rgb(0 0 0 / 19%);
+    -webkit-transition: all .4s ease-out 0s;
+    -o-transition: all .4s ease-out 0s;
+    -moz-transition: all .4s ease-out 0s;
+    transition: all .4s ease-out 0s;
+}
+
+.white-btn {
+    padding: 0.625rem 1.875rem;
+    line-height: 25px;
+    background-color: var(--white-color);
+    border: 0.1875rem solid var(--white-color);
+    color: var(--text-color);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    box-shadow: 0px 2px 10px -1px rgb(0 0 0 / 19%);
+    -webkit-transition: all .4s ease-out 0s;
+    -o-transition: all .4s ease-out 0s;
+    -moz-transition: all .4s ease-out 0s;
+    transition: all .4s ease-out 0s;
+}
+
+.main-btn:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+}
+
+.white-btn:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.wrapper {
+    padding-top: 8.25rem;
+    padding-bottom: 8.25rem;
+}
+
+.text-content {
+    width: 70%;
+    margin: auto;
+}
+
+.counter-section h2,
+.testimonial-section h2,
+.book-food-text h2 {
+    color: var(--white-color);
+}
+
+/*--------------------Header Design------------------------*/
+
+.navigation-wrap {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    z-index: 1000;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+.navigation-wrap .nav-item {
+    padding: 0 0.625rem;
+    margin-top: 12px;
+    transition: all 200ms linear;
+}
+.navbar-toggler:focus {
+    outline: unset;
+    border: unset;
+    box-shadow: none;
+}
+.nav-link {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: var(--primary-color);
+    letter-spacing: 1px;
+}
+.navigation-wrap .main-btn {
+    padding: 0.3125rem 1.4375rem;
+    box-shadow: none;
+    margin: 0.625rem;
+}
+
+/* change navbar on scroll */
+.navigation-wrap.scroll-on{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--white-color);
+    box-shadow: 0 0.125rem 1.75rem 0 rgb(0,0,0,0.09);
+    transition: all .15s ease-in-out 0s;
+}
+
+/* Navbar logo*/
+.navbar-brand {
+    line-height: 50px;
+    color:var(--primary-color);
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    float: left;
+}
+.navbar-brand span {
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--secondry-color);
+    line-height: 50px;
+    float: left;
+} 
+.navbar-brand span {
+    margin-right: 9px;
+}
+
+
+/* --------------------Banner Design----------------------- */
+
+.top-banner{
+    width: 100%;
+    background-image: url(/static/img/bg/bg-1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 13.875rem 0 9.375rem; 
+}
+
+/* ---------------------Brown Section------------------------ */
+
+.brown-section{
+    background-color: var(--primary-color);
+    padding: 1.5rem 0;
+}
+
+/* ------------------------About Design------------------- */
+
+.about-section {
+    background: var(--white-color);
+}
+.about-section .card,
+.about-section .card img {
+    border-radius: 0.625rem;
+    background: transparent;
+}
+.about-section .text-sec{
+    padding-left: 2rem;
+}
+.about-section {
+    width: 100%;
+    background-image: url(/static/img/bg/bg-6.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 16.875rem 0 9.375rem;
+    padding-top: 180px ;
+}
+
+.diet-info {
+    padding-left: 3.25rem;
+    padding-right: 3.25rem;
+    padding-top: 70px;
+    margin-bottom: -7%;
+}
+ 
+.diet-info ul li {
+    font-size: 1rem;
+    color: var(--text-color);
+    line-height: 32px;
+    position: relative;
+    margin-left: 30px;
+}
+.diet-info ul li::before{
+    position: absolute;
+    left: -2.1875rem;
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    font-family: "Font Awesome 5 Free";
+    content: '\f00c';
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+    font-weight: 900;
+}
+
+/* ------------------Explore Design------------------------- */
+
+.explore-diet .card {
+    border: none;
+    background-color: transparent;
+    border-radius: 0.9375rem;
+}
+.explore-diet .card img {
+    border-radius: 0.9375rem;
+    object-fit: cover;
+    box-shadow: 0 0.125rem 1.75rem 0 rgb(0, 0, 0,0.2);
+}
+.explore-diet {
+    width: 100%;
+    background-image: url(/static/img/bg/bg-5.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 13.875rem 0 9.375rem;
+    padding-top: 150px;
+}
+
+/* -------------------FAQ Design------------------------ */
+
+.faq h4 span {
+    color: var(--primary-color);
+    font-size: 1.875rem;
+    margin-right: 0.3125rem;
+}
+
+/* ---------------------Contact Design-------------------- */
+
+.contact {
+    padding-top: 10px;
+}
+
+/* --------------------Footer Design---------------------- */
+
+.footer {
+    background: var(--primary-color);
+}
+.footer .footer-link {
+    font-size: 1rem;
+    color: var(--white-color);
+    padding: 0 1.875rem;
+}
+.footer .footer-link:hover {
+    color: var(--white-color) !important;
+}
+.footer a i {
+    font-size: 1.5rem;
+    color: var(--white-color);
+    padding: 0 1rem;
+}
+.footer .footer-copy a {
+    font-size: 1rem;
+    color: var(--white-color);
+    padding: 0 1.875rem;
+}
+.footer .footer-copy a:hover{
+    color: var(--third-color) !important;
+}
+
+/* ------------------back to top----------------- */
+
+#back-to-top {
+    place-self: end;
+    position: fixed; 
+    bottom: 2em; 
+    right: 2em; 
+    z-index: 999;
+    display: none;
+}
+#back-to-top {
+	min-width: var(--back-to-top-button-size);
+	height: var(--back-to-top-button-size);
+	border-radius: 50%;
+
+	display: grid;
+	place-items: center;
+
+	text-decoration: none;
+	background-color: var(--color-accent);
+	box-shadow: 0 0.6em 1em 0.2em var(--color-accent-alpha);
+	transform: translateY(0%);
+	transition: ease-out 200ms;
+	transition-property: transform, background-color;
+}
+#back-to-top:hover {
+	transform: translateY(-22%);
+	background-color: var(--color-accent-bright);
+}
+#back-to-top::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 100%;
+	height: 200%;
+	transform: translateY(-30%);
+	background-color: rgba(0, 0, 0, 0);
+	display: block;
+}
+:root {
+    --back-to-top-offset: 200px;
+    --back-to-top-button-size: 2.8em;  
+    --color-accent: #a03939;            
+	--color-accent-bright: #ca4a4a;     
+	--color-accent-alpha: #fdc3c3;      
+}
