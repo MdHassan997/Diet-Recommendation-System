@@ -243,7 +243,13 @@ img {
 /* --------------button-------------- */
 .type--A{
   --line_color : #555555 ;
-  --back_color : #ffdddd  ;
+  --back_color : #ffe7e7  ;
+}
+.button[type="submit"] {
+    border: none; 
+    background: none; 
+    padding: 0; 
+    cursor: pointer; 
 }
 .button{
     position : relative ;
