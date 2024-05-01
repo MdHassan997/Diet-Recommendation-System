@@ -32,16 +32,6 @@ img {
   height: auto;
 }
 
-/* body {
-  -webkit-text-size-adjust: 100%;
-  font-variant-ligatures: none;
-  text-rendering: optimizeLegibility;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-size: 100%;
-  font-family: "Fira Sans", sans-serif;
-} */
-
 h1,
 h2,
 h3,
@@ -57,11 +47,9 @@ h2 {
   font-weight: 700;
   text-transform: capitalize;
   font-family: var(--secondry-font);
-  /* color: var(--secondry-color); */
   line-height: 3rem;
 }
 h4 {
-  /* color: var(--secondry-color); */
   font-family: var(--secondry-font);
   text-transform: capitalize;
   font-size: 18px;
@@ -85,17 +73,7 @@ body {
 
 }
 
-/* body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  color: #1F1D42;
-  background-color: #F0F8E1;
-} */
+/* ---------------card design-------------- */
 
 .card-hover {
   width: 360px;
