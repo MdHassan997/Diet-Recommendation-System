@@ -1,35 +1,121 @@
-from flask import Flask, render_template, request , send_from_directory, jsonify, json, session
+# from flask import Flask, render_template, request , send_from_directory, jsonify, json, session
+# from sklearn.neighbors import NearestNeighbors
+# import os
+# import pandas as pd
+from flask import Flask,render_template,request, session, redirect, url_for,jsonify, redirect,json
 import os
 import pandas as pd
+from scipy.sparse import csr_matrix
+from sklearn.neighbors import NearestNeighbors
+from flask import Flask, request, jsonify
+import pandas as pd
+import numpy as np
+from joblib import load
+from sklearn.preprocessing import StandardScaler,LabelEncoder
 
 app=Flask(__name__,static_url_path='/static', static_folder='static')
 app.secret_key = 'your_secret_key'
 
 dataset = pd.read_csv('templates/calories.csv')
+df = pd.read_csv('templates/food_data.csv')
+
+
 
 @app.route('/')
 def home():
     return render_template('index.html')
 
-@app.route('/dietplan')
-def diet():
-    return render_template('home.html')
 
-# @app.route('/result', methods=['POST'])
-# def mealplan():
-#     if request.method == 'POST':
-#         # Access form data
-#         diet_type = request.form.get('diet')
-#         disease = request.form.get('disease')
-#         veg_non_veg = request.form.get('veg_non_veg')
-#         nutrient = request.form.get('nutrient')
-        
-#         # Process form data as needed
-#         # For example, you can pass the form data to the results template
-#         return render_template('results.html', diet=diet_type, disease=disease, veg_non_veg=veg_non_veg, nutrient=nutrient)
-#     else:
-#         # Handle GET requests to /result route if needed
-#         return render_template('error.html', message='Method Not Allowed')
+
+class Recommender:
+
+    def __init__(self):
+        self.df = pd.read_csv('templates/food_data.csv')
+
+    def get_features(self):
+        #getting dummies of dataset
+        nutrient_dummies = self.df.Nutrient.str.get_dummies()
+        disease_dummies = self.df.Disease.str.get_dummies(sep=' ')
+        diet_dummies = self.df.Diet.str.get_dummies(sep=' ')
+        veg_dummies = self.df.Veg_Non.str.get_dummies(sep=' ')
+        feature_df = pd.concat([nutrient_dummies,disease_dummies,diet_dummies,veg_dummies],axis=1)
+
+        return feature_df
+
+    def k_neighbor(self,inputs):
+
+        feature_df = self.get_features()
+
+        #initializing model with k=20 neighbors
+        model = NearestNeighbors(n_neighbors=7,algorithm='ball_tree')
+
+        # fitting model with dataset features
+        model.fit(feature_df)
+
+        df_results = pd.DataFrame(columns=list(self.df.columns))
+
+
+        # getting distance and indices for k nearest neighbor
+        distnaces , indices = model.kneighbors(inputs)
+
+        for i in list(indices):
+            # df_results = df_results.append(self.df.loc[i])
+            indices = list(indices.flatten())  # Flatten the indices array
+
+            df_results = self.df.loc[indices] 
+
+        df_results = df_results.filter(['Name','catagory','description'])
+        df_results = df_results.drop_duplicates(subset=['Name'])
+        df_results = df_results.reset_index(drop=True)
+
+        def get_unique_values(self, column_name):
+            return sorted(self.df[column_name].unique())
+        return df_results
+
+
+   
+
+ob = Recommender()
+data = ob.get_features()
+
+total_features = data.columns
+d = dict()
+for i in total_features:
+    d[i]=0
+print(d)
+
+
+@app.route('/food_rec',methods=['GET','POST'])
+def food_rec():
+ # unique_diet_types = sorted(ob.df['Diet'].unique())
+    nutrient = sorted(df['Nutrient'].unique())
+    return render_template('food_form.html',nutrient=nutrient)
+
+@app.route('/results', methods=['GET', 'POST'])
+def results():
+    diet = request.args.get("diet")
+    nutrient = request.args.get("nutrient")
+    veg = request.args.get("veg")
+    disease = request.args.get("disease")
+    # selected_diet = request.args.get("diet")
+
+    # Reset dictionary values
+    for key in d:
+        d[key] = 0
+
+    # Set features based on input
+    if diet:
+        d[diet] = 1
+    if nutrient:
+        d[nutrient] = 1
+    if veg:
+        d[veg] = 1
+    if disease:
+        d[disease] = 1
+
+    final_input = list(d.values())
+    results = ob.k_neighbor([final_input])  # pass 2d array []
+    return render_template("results.html", results=results)
     
 @app.route('/bmrForm',methods=["POST","GET"])
 def bmrCalculate():
@@ -92,6 +178,8 @@ def get_data():
         data = json.load(file)
 
     return jsonify(data)
+
+
 
 
 

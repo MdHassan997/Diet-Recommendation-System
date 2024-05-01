@@ -1,3 +1,22 @@
+@media (min-width: 991px) and (max-width: 1400px) {
+    .top-banner{
+        padding: 10.875rem 0 9.375rem;
+    }
+    .text-content {
+        width: 100%;
+    }
+
+    .button-2 {
+        display: flex;
+        justify-content: center;
+    }
+
+    .button-2 button {
+        margin: 0 0.5rem; /* Adjust margin for space between buttons */
+        padding: 0.5rem 1rem; /* Adjust padding to maintain button width */
+    }
+}
+
 @media (max-width: 991px) {
 
     /* custom classes */
