@@ -3,43 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calorie Engine</title>
+
+    <!-- Bootstrap 5 CDN Links -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> <!--integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> <!--integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"-->
+
+    <!-- Custom File's links -->
+    <link  rel="stylesheet" href="static/bmrForm-style.css">
+
 </head>
 <body>
-    <form action="/bmiCalorieCalculate",method="post">
-        <div>
-            <label for="age">Age:</label>
+  <div class="container">
+    <div class="card">
+      <div class="card-image">	
+        <h2 class="card-heading">
+        Get Healthy!!! <i class="fa-solid fa-heart-pulse"></i>
+        <small>Let us Calculate your BMR</small>
+        </h2>
+      </div>
+      <div class="card-form">
+        <form action="/bmiCalorieCalculate",method="post" id="bmrform">
+          <div class="input-group">
             <input type="number" id="age" name="age" required>
+            <label for="age">Age:</label>
           </div>
-          <div>
-            <label for="height">Height (in cm):</label>
+          <div class="input-group">
             <input type="number" id="height" name="height" required>
+            <label for="height">Height (in cm):</label>
           </div>
-          <label for="weight">Weight (in kg):</label>
-          <input type="number" id="weight" name="weight" required>
-        </div>
-          <div>
-            <label for="gender">Gender:</label>
+          <div class="input-group">
+            <input type="number" id="weight" name="weight" required>
+            <label for="weight">Weight (in kg):</label>
+          </div>
+          <label for="gender">Gender:</label>
+          <div class="box">
             <select id="gender" name="gender" required>
               <option value="">Select Gender</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
           </div>
-          <div>
-            <label>Lifestyle:</label><br>
+
+          <div class="pt-2">
+            <label>Lifestyle:</label>
+            <label class="form-control">
             <input type="radio" id="sedentary" name="lifestyle" value="sedentary" required>
-            <label for="sedentary">Sedentary</label><br>
+            Sedentary
+            </label>
+            <label class="form-control">
             <input type="radio" id="lightly_active" name="lifestyle" value="lightly_active">
-            <label for="lightly_active">Lightly Active</label><br>
+            Lightly Active
+            </label>
+            <label class="form-control">
             <input type="radio" id="moderately_active" name="lifestyle" value="moderately_active">
-            <label for="moderately_active">Moderately Active</label><br>
+            Moderately Active
+            </label>
+            <label class="form-control">
             <input type="radio" id="very_active" name="lifestyle" value="very_active">
-            <label for="very_active">Very Active</label><br>
+            Very Active
+            </label>
+            <label class="form-control">
             <input type="radio" id="extra_active" name="lifestyle" value="extra_active">
-            <label for="extra_active">Extra Active</label>
+            Extra Active
+            </label>
           </div>
-          <input type="submit" Value="Submit">
-    </form>
+
+          <div class="pt-2">
+            <div class="container-button">
+              <button type="submit" class="button type--A" form="bmrform">
+                <div class="button__line"></div>
+                <div class="button__line"></div>
+                <span class="button__text">CALCULATE</span>
+                <div class="button__drow1"></div>
+                <div class="button__drow2"></div>
+              </button>
+            </div>
+          </div>
+
+          
+
+          <!-- <input type="submit" Value="Submit"> -->
+
+        </form>
+      </div>
+      <div class="card-info">
+          <p><i class="fa-solid fa-copyright"></i> 2024. Diet Recommendation System. All rights reserved  <a href="https://www.termsfeed.com/live/24fead17-6e32-4501-8ee1-31a26a2e6b60">Terms and Conditions</a></p>
+      </div>
+    </div>
+  </div>
+    
+
+
+  <!-- Bootstrap 5 JS CDN Links -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script> <!--integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script> <!--integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"-->
+
+  <!-- Custom JS Link -->
+  <script src="static/main.js"></script>
+
+
+
+
 </body>
 </html>

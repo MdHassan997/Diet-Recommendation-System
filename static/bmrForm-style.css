@@ -38,7 +38,7 @@ body {
 }
 
 
-/* -------------------------------------- */
+/* -------------Form Design---------------- */
 form {
     max-width: 600px;
     margin: 50px auto;
@@ -198,7 +198,7 @@ img {
   transform: scale(1.051);
 }
 
-/* ----text area------ */
+/* --------------Number area--------------- */
 
 .input-group {
     position: relative;
@@ -216,7 +216,7 @@ img {
     transition: .5s;
 }
 
-.input-group input[type="text"] {
+.input-group input[type="number"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -237,6 +237,55 @@ img {
     margin-bottom: 200px;
 }
 
+
+/* -----------input radio design------------- */
+
+.form-control {
+    font-family: var(--primary-font);
+    font-size: 0.9375rem;
+    font-weight: bold;
+    line-height: 1.1;
+    display: grid;
+    grid-template-columns: 1em auto;
+    gap: 0.5em;
+}
+.form-control + .form-control {
+    margin-top: 1em;
+}
+.form-control:focus-within {
+    color: var(--primary-color);
+}
+input[type="radio"] {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border-radius: 50%;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+}
+input[type="radio"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em rgb(0 0 0 / 19%);
+    background-color: CanvasText;
+}
+input[type="radio"]:checked::before {
+    transform: scale(1);
+    background-color: var(--primary-color);
+}
+input[type="radio"]:focus {
+    outline: max(2px, 0.15em) solid currentColor;
+    outline-offset: max(2px, 0.15em);
+}
 
 
 
