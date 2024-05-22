@@ -1,8 +1,6 @@
-# from flask import Flask, render_template, request , send_from_directory, jsonify, json, session
-# from sklearn.neighbors import NearestNeighbors
-# import os
-# import pandas as pd
 from flask import Flask,render_template,request, session, redirect, url_for,jsonify, redirect,json
+import google.generativeai as genai
+from dotenv import load_dotenv
 import os
 import pandas as pd
 from scipy.sparse import csr_matrix
@@ -18,6 +16,17 @@ app.secret_key = 'your_secret_key'
 
 dataset = pd.read_csv('templates/calories.csv')
 df = pd.read_csv('templates/food_data.csv')
+
+load_dotenv()  # Load environment variables from .env file
+
+genai.configure(api_key=os.environ.get("API_KEY"))  # Set API key
+
+model = genai.GenerativeModel(
+    model_name="models/gemini-1.5-pro-latest",
+    system_instruction="""Your name is Food  Genius from Food4Health. You are a comprehensive and informative food expert. You can answer a wide range of questions related to food, from recipes and ingredients to cooking techniques and food science.Along with you also tells healthy diet food related question including carbs,calorie, fats etc. (max 50 words)..If the user asks questions other than food and diet then politely deny them and ask them to ask food realted questions.Use emojis to reply related to message in between such that the chat look more interactive""",
+)
+
+chat_history=[]
 
 
 
@@ -130,7 +139,7 @@ def bmrCaloriecalculate():
     Lifestyle=request.args.get('lifestyle')
     calorie = None
     if(gender=='male'):
-        BMR=88.362+(13.397*weight)+(4.799*height)-(5.677*age)
+        BMR=88.362+(13.397*weight)+(4.799*height)-(5.677*age)  #Revised Harris Benedict Equation
     else:
         BMR = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age )
 
@@ -147,6 +156,7 @@ def bmrCaloriecalculate():
     
     # calorie = session.get('calorie_value')
     session['calorie'] = calorie
+    BMR = round(BMR, 2)
 
     return render_template('CaloriePage.html',BMR=BMR,calorie=calorie,Lifestyle=Lifestyle,)  
 
@@ -179,6 +189,30 @@ def get_data():
 
     return jsonify(data)
 
+
+@app.route("/chat", methods=["GET", "POST"])
+def chat():
+    global chat_history
+
+    if request.method == "POST":
+        prompt = request.get_json()["prompt"]
+        if prompt:
+            # Try different methods based on documentation or experimentation
+                response = model.generate_content(prompt)
+                # message=response.resukt['content'][0]['parts'][0]['text']
+                # Assuming "candidates" and "content" keys are present in the response:
+                # text_response = response["candidates"][0]["content"]["parts"][0]["text"]
+                # text_response = response["result"]["content"]["parts"][0]["text"]
+                # print(text_response)
+
+                chat_history.append(prompt)
+                message = response.candidates[0].content.parts[0].text
+                chat_history.append(message)
+
+        return jsonify({"chatHistory": render_template("chat.html", messages=chat_history)})
+    else:
+        # Optional: Handle GET requests for the chat box (e.g., initial state)
+        return jsonify({"chatHistory": render_template("chat.html",messages=[])})
 
 
 

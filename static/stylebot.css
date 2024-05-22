@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:wght@300;400;500;600;700&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+
+/* Chat Container */
+#chat-container {
+    position: fixed;  /* Positions the chat box at a fixed location */
+    bottom: 20px;     /* Sets the bottom position of the chat box */
+    right: 20px;      /* Sets the right position of the chat box */
+    z-index: 100;     /* Ensures the chat box stays on top of other elements */
+    display: flex;
+    /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+     */
+    font-family: 'Roboto', sans-serif;
+    font-size: medium;   /* Allows arranging the button and box horizontally */
+  }
+  #bot-logo {
+    background-color: #007bff; /* Blue background color */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 50%; /* Make it circular */
+    padding: 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Add a smooth transition effect */
+  }
+  /* Chat Button */
+  #chat-button {
+    background-color:lightcoral; /* Button background color */
+    color: white;              /* Button text color */
+    border: none;               /* Removes button border */
+    padding: 10px 20px;        /* Button padding */
+    cursor: pointer;            /* Changes cursor to pointer on hover */
+    border-radius: 15px 0;         /* Rounded corners for the button */
+    transition: background-color 0.2s ease-in-out;  /* Adds a smooth transition effect on hover */
+  }
+  
+  #chat-button:hover {
+    background-color: #2980b9;  /* Button background color on hover */
+  }
+  
+  #chat-button i {  /* Styles the chat icon within the button */
+    margin-right: 5px;
+  }
+  
+  /* Chat Box */
+  #chat-box {
+    background-color:#b1c3d7;   /* Chat box background color */
+    /* border: 1 solid  ; */
+        /* Chat box border */
+    box-shadow: 20px 10px 10px rgb(255, 228, 228);
+    padding: 10px;             /* Chat box padding */
+    width: 300px;              /* Chat box width */
+    max-height: 300px;         /* Sets a maximum height for the chat box */
+    overflow-y: scroll;        /* Enables scrolling for long chat history */
+    display: none;             /* Initially hides the chat box */
+    /* display: flex; */
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.2s ease-in-out;  /* Adds a smooth transition effect on opening/closing */
+  }
+  
+  #chat-box.open {  /* Styles for the chat box when opened */
+    display: block;
+  }
+  #chat-form input[type="text"] {
+    width: 80%; /* Set width to 80% of the parent container */
+    max-width: 400px; /* Set maximum width to ensure it doesn't become too wide */
+    padding: 15px; /* Increase padding for a larger input box */
+    border-radius: 10px; /* Increase border-radius for rounded corners */
+    border: 1px solid #ccc;
+    margin-right: 5px;
+}

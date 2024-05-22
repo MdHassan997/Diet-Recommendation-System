@@ -4,198 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Display</title>
-    <link rel="icon" type="image/x-icon" href="data:;base64,iVBORw0KGgo=">
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="/static/img/pics/favicon.png">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <style>
-        @import url('https://fonts.googleapis.com/css?family=Quicksand:wght@300;400;500;600;700&family=Roboto:wght@100;300;400;500;700;900&display=swap');
-        :root { 
-  --primary-color: #a82c48;
-  --secondry-color: #43121d;
-  --third-color: #f98169;
-  --white-color: #fff;
-  --text-color: #555;
-  --text-gray: #999;
-  --black-color: #000;
-  --primary-font: 'Roboto', sans-serif;
-  --secondry-font: 'Quicksand', sans-serif;
-  ;
-}
-        
-        body {
-            /* font-size: 16px; Increase font size for all text */
-             /* Center align the content */
-            /* font-family: Arial, sans-serif; */
-            
-                    
-            font-family: var(--secondry-font);
-            font-weight: 600;
-            background-image: url('/static/img/bg/bg-5.jpg');
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
-           
-            
-            justify-content: center; 
-            align-items: center; 
-            /* height: 83vh;  */
+    <link  rel="stylesheet" href="static/test-style.css">
 
-        }
-        h1 {
-    font-size: 2.5rem; /* Adjust the font size as needed */
-    color: var(--primary-color); /* Use your primary color */
-    margin-bottom: 20px; /* Add some spacing at the bottom */
-}
-
-h2 {
-    font-size: 2rem; /* Adjust the font size as needed */
-    color: var(--secondary-color); /* Use your secondary color */
-    margin-bottom: 15px; /* Add some spacing at the bottom */
-}
-
-h3 {
-    font-size: 1.5rem; /* Adjust the font size as needed */
-    color: var(--accent-color); /* Use your accent color */
-    margin-bottom: 10px; /* Add some spacing at the bottom */
-}
-
-        /* CSS for the round-shaped button */
-        .redirect-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #800000; /* Maroon color */
-            color: white; /* Text color */
-            border: none;
-            border-radius: 50%; /* Makes the button round */
-            width: 60px; /* Button width */
-            height: 60px; /* Button height */
-            font-size: 20px; /* Font size */
-            text-align: center;
-            line-height: 60px; /* Vertically center the text */
-            text-decoration: none; /* Remove underline from the link */
-            box-shadow: 0px 4px 8px rgba(128, 0, 0, 0.4); /* Add shadow for depth */
-            z-index: 999; /* Ensure the button stays on top of other content */
-        }
-
-        .redirect-btn:hover {
-            background-color: #660000; /* Darker maroon color on hover */
-            cursor: pointer; /* Change cursor on hover */
-        }
-
-        /* Custom Scrollbar */
-
-::-webkit-scrollbar {
-    width: 0.625rem;
-}
-::-webkit-scrollbar-track {
-    background: var(--white-color);
-}
-::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
-}
-
-      
-
-        .category-button {
-            display: inline-block;
-            margin: 5px;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            font-size: 16px;
-            transition-duration: 0.4s;
-        }
-
-        .category-button:hover {
-            background-color: #45a049;
-        }
-
-        .food-list {
-            max-height: 200px; /* Set the maximum height for the food list */
-            overflow-y: auto; /* Add vertical scrollbar if necessary */
-            list-style-type: none; /* Remove bullet points from list items */
-            padding: 0; /* Remove default padding */
-            text-align: left; /* Align text to the left */
-        }
-
-        .food-item {
-            margin-bottom: 5px;
-            padding: 10px;
-            background-color: #f2f2f2;
-            border-radius: 5px;
-        }
-
-        #totalCalorie {
-            font-size: 18px; /* Increase font size */
-        }
-
-        #subtractCaloriesBtn {
-            font-size: 18px; /* Increase font size */
-            padding: 10px 20px; /* Add padding */
-            background-color: orange; /* Set background color */
-            color: white; /* Set text color */
-            border: none; /* Remove border */
-            border-radius: 5px; /* Add border radius */
-            cursor: pointer; /* Change cursor on hover */
-        }
-
-        .selected {
-            background-color: yellow; /* Highlight selected items */
-        }
-
-        #subtractedFoodListContainer {
-            margin-top: 20px; /* Add space above the subtracted food list */
-        }
-
-        #subtractedFoodList {
-            text-align: left; /* Align text to the left */
-            font-size: 18px; /* Increase font size */
-        }
-        #subtractedFoodList {
-            text-align: left; /* Align text to the left */
-            font-size: 18px; /* Increase font size */
-            padding: 10px; /* Add padding */
-        }
-        #subtractedFoodList div {
-            background-color: #e0e0e0; /* Light gray background */
-            border-radius: 5px; /* Add border radius */
-            margin-bottom: 5px; /* Add space between items */
-            padding: 8px; /* Add padding */
-            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
-            transition: background-color 0.3s; /* Smooth transition */
-        }
-
-        #subtractedFoodList div:hover {
-            background-color: #d0d0d0; /* Darker background on hover */
-        }
-        
-        #downloadPdfBtn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition-duration: 0.4s;
-        }
-
-        #chartContainer {
-            margin-top: 20px;
-            width: 50%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-    </style>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
      -->
      <!-- <script src="js/jspdf.umd.min.js"></script> -->
@@ -203,286 +19,89 @@ h3 {
 
 </head>
 <body>
-    <h1>Data Display</h1>
-    <div id="categoryContainer">
-        <!-- Categories will be dynamically added here -->
-    </div>
+        <!-- <h1>Data Display</h1>
 
-    <ul id="foodList" class="food-list">
-        <!-- Food list will be dynamically added here -->
-    </ul>
+    <div class="card-container">
+        <div class="card food-list-card">
 
-    <h2>Total Calorie Requirement: <span id="totalCalorie">{{ calorie }}</span> cal</h2>
-    <button id="subtractCaloriesBtn">Subtract Calories</button>
-    <div id="subtractedFoodListContainer" style="display: none;">
-        <h3>Subtracted Food List:</h3>
-        <div id="subtractedFoodList"></div>
-    </div>
+            <div id="categoryContainer">
 
-    <button id="showSubtractedListBtn">Show Subtracted List</button>
-    <button id="downloadPdfBtn">Download</button>
- 
+            </div>
     
-    <div id="chartContainer">
-        <canvas id="caloriesPieChart"></canvas>
+            <ul id="foodList" class="food-list">
+
+            </ul>
+
+            <h2>Total Calorie Requirement: <span id="totalCalorie">{{ calorie }}</span> cal</h2>
+            <button id="subtractCaloriesBtn" class="button">Subtract Calories</button>
+
+        </div>
+        <div class="card subtracted-food-list-card">
+            <div class="subtractedFoodListContainer">
+                <h3>Subtracted Food List:-</h3>
+                <div class="subtractedFoodList"></div>
+            </div>
+        </div>
+
+
+        <button id="showSubtractedListBtn">Show Subtracted List</button>
+        <button id="downloadPdfBtn">Download</button>
+        
+
+        <div id="chartContainer">
+            <canvas id="caloriesPieChart"></canvas>
+        </div>
+
+    </div> -->
+
+
+
+
+
+    <h1>Data Display</h1>
+    <div class="card-container">
+        <div class="card-cat btn-container">
+            <div id="categoryContainer">
+                <!-- Categories will be dynamically added here -->
+            </div>
+        </div>
+    
+        <div class="food-chart-container">
+            <ul id="foodList" class="food-list">
+                <!-- Food list will be dynamically added here -->
+            </ul>
+        
+            <div id="chartContainer">
+                <canvas id="caloriesPieChart"></canvas>
+            </div>
+        </div>
+    
+        <h1>Total Calorie Requirement: <span id="totalCalorie">{{ calorie }}</span> cal</h1>
+        <!-- <button id="subtractCaloriesBtn">Subtract Calories</button> -->
+
+        <div class="btn-container">
+            <button id="subtractCaloriesBtn">Subtract Calories</button>
+            <button id="showSubtractedListBtn">Show Subtracted List</button>
+        </div>
+        <div id="subtractedFoodListContainer" style="display: none;">
+            <h2>Subtracted Food List:</h2>
+            <div id="subtractedFoodList"></div>
+        </div>
+    
     </div>
+    
+
 
     <a href="/" class="redirect-btn"><i class="fa-solid fa-house"></i></a>
   
     <!-- <script src="node_modules\jspdf\dist\jspdf.es.min.js"></script> -->
- 
+    <script src="static/test-js.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
 
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const categoryContainer = document.getElementById('categoryContainer');
-            const foodList = document.getElementById('foodList');
-            let categories = [];
-            let subtractedItems = new Set(); // Define subtractedItems globally
-            let subtractedCalories = new Map(); // Store subtracted calories for pie chart
-
-            // Fetch data from data.json in the static folder
-            fetch('/static/data.json')  // Update the path to your data.json file
-                .then(response => response.json())
-                .then(data => {
-                    // Extract unique category names
-                    categories = [...new Set(data.map(item => item.FoodCategory))];
-
-                    // Create buttons for each category
-                    categories.forEach(category => {
-                        const button = document.createElement('button');
-                        button.textContent = category;
-                        button.className = 'category-button';
-                        button.addEventListener('click', () => {
-                            // Filter food list by category
-                            const filteredFood = data.filter(item => item.FoodCategory === category);
-                            // Display filtered food list
-                            displayFoodList(filteredFood);
-                        });
-                        categoryContainer.appendChild(button);
-                    });
-                })
-                .catch(error => console.error('Error fetching data:', error));
-
-            function displayFoodList(foodArray) {
-                // Clear previous food list
-                foodList.innerHTML = '';
-                // Populate food list
-                foodArray.forEach(item => {
-                    const listItem = document.createElement('li');
-                    listItem.className = 'food-item';
-                    listItem.textContent = `${item.FoodItem} (${item.FoodCategory}) - ${item.Cals_per100grams} cal`;
-                    foodList.appendChild(listItem);
-                });
-            }
-
-            const subtractCaloriesBtn = document.getElementById('subtractCaloriesBtn');
-            const totalCalorieElement = document.getElementById('totalCalorie');
-            const subtractedFoodList = document.getElementById('subtractedFoodList');
-            const subtractedFoodListContainer = document.getElementById('subtractedFoodListContainer');
-            const showSubtractedListBtn = document.getElementById('showSubtractedListBtn');
-
-            // Retrieve total calorie requirement from Flask route
-            let totalCalorie = parseInt(totalCalorieElement.textContent);
-
-            // Event listener for subtracting calories
-            subtractCaloriesBtn.addEventListener('click', () => {
-                const selectedItems = document.querySelectorAll('.food-item.selected');
-
-                selectedItems.forEach(item => {
-                    const calorieText = item.textContent.split('-')[1].trim().split(' ')[0];
-                    const foodName = item.textContent.split('-')[0].trim();
-                    const calories = parseInt(calorieText);
-
-                    // Check if the item has already been subtracted
-                    if (!subtractedItems.has(foodName)) {
-                        totalCalorie -= calories; // Subtract the calories from the total calorie requirement
-                        item.style.textDecoration = 'line-through';
-                        subtractedItems.add(foodName); // Add the subtracted item to the Set
-
-                        // Store subtracted calories for pie chart
-                        subtractedCalories.set(foodName, calories);
-                    }
-                });
-
-                totalCalorieElement.textContent = totalCalorie;
-
-                if (totalCalorie <= 0) {
-                    alert('Your limit calorie has been reached!');
-                }
-
-                // Show the button to reveal the subtracted list
-                showSubtractedListBtn.style.display = 'inline-block';
-
-                // Update pie chart
-                updatePieChart();
-            });
-
-            // Event listener for selecting items
-            foodList.addEventListener('click', (event) => {
-                const listItem = event.target;
-                if (listItem.tagName === 'LI') {
-                    listItem.classList.toggle('selected');
-                }
-            });
-
-            // Event listener for showing the subtracted list
-            showSubtractedListBtn.addEventListener('click', () => {
-                subtractedFoodListContainer.style.display = 'block';
-                showSubtractedListBtn.style.display = 'none'; // Hide the button after revealing the list
-
-                // Display the subtracted items
-                subtractedFoodList.innerHTML = Array.from(subtractedItems).map(foodName => `<div>${foodName}</div>`).join('');
-
-                // Show the download PDF button
-               
-            });
-            
-
-            // Add event listener to the download PDF button
-            function downloadPdf() {
-                const doc = new jsPDF();
-                const subtractedFoodListItems = Array.from(subtractedItems);
-                // Add each subtracted food item to the PDF
-                subtractedFoodListItems.forEach((foodName, index) => {
-                    doc.text(10, 10 + index * 10, foodName);
-                });
-                // Save the PDF
-                doc.save('subtracted_food_list.pdf');
-            }
-
-            // Attach event listener to the download PDF button
-            const downloadPdfBtn = document.getElementById('downloadPdfBtn');
-            downloadPdfBtn.addEventListener('click', downloadPdf);
-           
-
-            // Function to update the pie chart
-            function updatePieChart() {
-                const canvas = document.getElementById('caloriesPieChart');
-                const ctx = canvas.getContext('2d');
-
-                // Clear the previous chart
-                if (window.pieChart) {
-                    window.pieChart.destroy();
-                }
-
-                // Prepare data for the pie chart
-                const labels = Array.from(subtractedItems);
-                const data = labels.map(foodName => subtractedCalories.get(foodName));
-
-                // Create new pie chart
-                window.pieChart = new Chart(ctx, {
-                    type: 'pie',
-                    data: {
-                        labels: labels,
-                        datasets: [{
-                            label: 'Subtracted Calories',
-                            data: data,
-                            backgroundColor: [
-                                'rgba(255, 99, 132, 0.7)',
-                                'rgba(54, 162, 235, 0.7)',
-                                'rgba(255, 206, 86, 0.7)',
-                                'rgba(75, 192, 192, 0.7)',
-                                'rgba(153, 102, 255, 0.7)',
-                                'rgba(255, 159, 64, 0.7)',
-                                'rgba(255, 99, 132, 0.7)'
-                            ],
-                            borderColor: [
-                                'rgba(255, 99, 132, 1)',
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)',
-                                'rgba(153, 102, 255, 1)',
-                                'rgba(255, 159, 64, 1)',
-                                'rgba(255, 99, 132, 1)'
-                            ],
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        title: {
-                            display: true,
-                            text: 'Subtracted Calories'
-                        }
-                    }
-                });
-            }
-            function updatePieChart() {
-                const canvas = document.getElementById('caloriesPieChart');
-                const ctx = canvas.getContext('2d');
-
-                // Clear the previous chart
-                if (window.pieChart) {
-                    window.pieChart.destroy();
-                }
-
-                // Prepare data for the pie chart
-                const labels = Array.from(subtractedItems);
-                const data = labels.map(foodName => subtractedCalories.get(foodName));
-
-                // Create new pie chart with custom options
-                window.pieChart = new Chart(ctx, {
-                    type: 'pie',
-                    data: {
-                        labels: labels,
-                        datasets: [{
-                            label: 'Subtracted Calories',
-                            data: data,
-                            backgroundColor: [
-                                'rgba(255, 99, 132, 0.7)',
-                                'rgba(54, 162, 235, 0.7)',
-                                'rgba(255, 206, 86, 0.7)',
-                                'rgba(75, 192, 192, 0.7)',
-                                'rgba(153, 102, 255, 0.7)',
-                                'rgba(255, 159, 64, 0.7)',
-                                'rgba(255, 99, 132, 0.7)'
-                            ],
-                            borderColor: [
-                                'rgba(255, 99, 132, 1)',
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)',
-                                'rgba(153, 102, 255, 1)',
-                                'rgba(255, 159, 64, 1)',
-                                'rgba(255, 99, 132, 1)'
-                            ],
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        title: {
-                            display: true,
-                            text: 'Subtracted Calories',
-                            fontSize: 20
-                        },
-                        animation: {
-                            animateRotate: true, // Enable rotation animation
-                            animateScale: true, // Enable scale animation
-                            duration: 1500 // Animation duration in milliseconds
-                        },
-                        plugins: {
-                            legend: {
-                                labels: {
-                                    font: {
-                                        size: 16 // Adjust legend font size
-                                    }
-                                }
-                            }
-                        }
-                    }
-                });
-            }
-
-            // Call the function to initially update the pie chart
-            updatePieChart();
-        });
-    </script>
+    
 
 </body>
 </html>

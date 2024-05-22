@@ -15,6 +15,10 @@
     <!-- Custom CSS links -->
     <link  rel="stylesheet" href="static/style.css">
     <link  rel="stylesheet" href="static/responsive-style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylebot.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 
 </head>
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="75">
@@ -22,9 +26,10 @@
     <header class="header_wrapper">
         <nav class="navbar navbar-expand-lg navigation-wrap">
             <div class="container">
-              <a class="navbar-brand" href="">
-                <span>Food</span>4 Health
-              </a>
+                <a class="navbar-brand" href="">
+                  <img src="/static/img/pics/logo.svg" alt="">
+                  <!-- <span>Food</span>4 Health -->
+                </a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" 
               aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa-solid fa-bars-staggered"></i>
@@ -47,7 +52,7 @@
                     <a class="nav-link" href="#contact">Contact</a>
                   </li>
                   <li>
-                    <a href="/dietplan">
+                    <a href="/food_rec">
                       <button class="main-btn">Get Recommended<i class="fa-solid fa-magnifying-glass-chart ps-3"></i></button>
                     </a>
                   </li>
@@ -338,7 +343,7 @@
             <div class="col-sm-12">
               <div class="footer-copy">
                 <div class="copy-right text-center pt-5">
-                  <p class="text-light"><i class="fa-solid fa-copyright ps-1"></i> 2024. Diet Recommendation System. All rights reserved </p>
+                  <p class="text-light"><i class="fa-solid fa-copyright ps-1"></i> 2024. FOOD 4 HEALTH. All rights reserved </p>
                   <a href="https://www.termsfeed.com/live/24fead17-6e32-4501-8ee1-31a26a2e6b60">Terms and Conditions</a>
                 </div>
               </div>
@@ -350,6 +355,56 @@
     <!-- Footer Section Exit -->
      
     <a id="back-to-top" href="#">👆🏼</a>  <!--Back to top Button-->
+
+    <!-- Chat Bot Section -->
+    <div id="chat-container" style="position: fixed; bottom: 1rem; right: 70px;">
+      <div id="chat-button">
+        <i class="fas fa-robot"></i>  <!-- Bot symbol -->
+        <span>Ask Food Genius</span> <!-- Button text -->
+      </div>
+      <div id="chat-box">
+        <ul id="chat-history"></ul>
+        <form id="chat-form" action="/chat" method="POST">
+          <input type="text" name="prompt" placeholder="Ask Food Genius a question..." required>
+        </form>
+      </div>
+    </div>
+    <!-- Chat Bot Section Exit -->
+  
+    <script>
+    $(document).ready(function() {
+      // Toggle chat box visibility on button click
+      $("#chat-button").click(function() {
+        $("#chat-box").toggle();
+      });
+  
+      // Handle chat form submission using AJAX
+      $("#chat-form").submit(function(event) {
+        event.preventDefault();
+  
+        const prompt = $("#chat-form input[name='prompt']").val();
+  
+        
+        $.ajax({
+          url: "/chat",
+          method: "POST",
+          contentType: "application/json",
+          data: JSON.stringify({ prompt: prompt }),
+          success: function(response) {
+            
+            $("#chat-history").html(response.chatHistory);
+  
+            
+            $("#chat-form input[name='prompt']").val("");
+          },
+          error: function(error) {
+            console.error("Error sending chat message:", error);
+            // Handle errors gracefully (e.g., display an error message to the user)
+          }
+        });
+      });
+    });
+    </script>
 
     <!-- Bootstrap 5 JS CDN Links -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script> 

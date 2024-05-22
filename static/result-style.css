@@ -27,7 +27,7 @@
 body {
     font-family: var(--secondry-font);
     font-weight: 600;
-    background-image: url('static/img/bg-3.jpg');
+    background-image: url('/static/img/bg/bg-3.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
