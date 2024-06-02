@@ -46,7 +46,7 @@
     background-color:#b1c3d7;   /* Chat box background color */
     /* border: 1 solid  ; */
         /* Chat box border */
-    box-shadow: 20px 10px 10px rgb(255, 228, 228);
+    box-shadow: 20px 10px 10px rgb(255, 237, 237);
     padding: 10px;             /* Chat box padding */
     width: 300px;              /* Chat box width */
     max-height: 300px;         /* Sets a maximum height for the chat box */
@@ -67,5 +67,6 @@
     padding: 15px; /* Increase padding for a larger input box */
     border-radius: 10px; /* Increase border-radius for rounded corners */
     border: 1px solid #ccc;
-    margin-right: 5px;
+    margin-right:5px;
 }
+

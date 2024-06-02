@@ -25,24 +25,40 @@
     }
 
     /* navigation Design */
-
-    .navgation-wrap .navbar-brand{
-        height: 3.8125rem;
+    .navigation-wrap .navbar-brand {
+        height: 280px; 
+        width: 280px; 
+        position: absolute; 
+        left: 10px; 
+        top: -50px; 
+        transform: none; 
+        z-index: 1001; 
     }
     .navigation-wrap {
         text-align: center;
         background-color: var(--white-color);
+        padding-top: 100px; 
+    }
+    .navigation-wrap .navbar-toggler {
+        position: absolute;
+        right: 20px; 
+        top: 25px; 
+        z-index: 1002; 
     }
     .navigation-wrap .nav-link {
-        line-height: 1.875rem; 
+        line-height: 1.875rem;
     }
 
     /* Banner Design */
-    .top-banner{
+    .top-banner {
         padding: 9.375rem 0 9.375rem;
     }
 
+    .navbar-collapse {
+        text-align: center;
+    }
 }
+
 
 @media (max-width: 767px) {
     h1 {

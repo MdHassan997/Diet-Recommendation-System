@@ -239,7 +239,7 @@ p {
     height: 300px; /* Adjust as needed */
     width: 300px; /* Adjust as needed */
     position: absolute;
-    left: 100px; /* Adjust as needed to position the logo */
+    left: 10px; /* Adjust as needed to position the logo */
     top: 50%; /* Adjust as needed to vertically center the logo */
     transform: translateY(-37%);
 }
@@ -389,7 +389,7 @@ p {
     place-self: end;
     position: fixed; 
     bottom: 1em; 
-    right: 0.97em; 
+    right: 1em; 
     z-index: 999;
     display: none;
 }
